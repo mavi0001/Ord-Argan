@@ -2,98 +2,63 @@ const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
 
-menuBtn.addEventListener("click", (e) => {
-  navLinks.classList.toggle("open");
+let isMenuOpen = false; // Track the menu state
 
-  const isOpen = navLinks.classList.contains("open");
-  menuBtnIcon.setAttribute(
-    "class",
-    isOpen ? "ri-close-line" : "ri-menu-3-line"
-  );
+// Toggle menu visibility and icon change
+menuBtn.addEventListener("click", (e) => {
+  if (isMenuOpen) {
+    navLinks.classList.remove("open");
+    menuBtnIcon.setAttribute("class", "ri-menu-3-line");
+  } else {
+    navLinks.classList.add("open");
+    menuBtnIcon.setAttribute("class", "ri-close-line");
+  }
+  isMenuOpen = !isMenuOpen;
 });
 
+// Close menu when clicking on any of the menu items
 navLinks.addEventListener("click", (e) => {
   navLinks.classList.remove("open");
   menuBtnIcon.setAttribute("class", "ri-menu-3-line");
+  isMenuOpen = false;
 });
 
+// ScrollReveal Options
 const scrollRevealOption = {
   distance: "50px",
   origin: "bottom",
   duration: 1000,
 };
 
-ScrollReveal().reveal(".header__image img", {
-  duration: 1000,
-});
-ScrollReveal().reveal(".header__content h1", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".header__content .section__description", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".header__btn", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
-ScrollReveal().reveal(".header__content .socials", {
-  ...scrollRevealOption,
-  delay: 2000,
-});
+// Helper function to apply ScrollReveal to elements
+const applyScrollReveal = (selector, options = {}) => {
+  ScrollReveal().reveal(selector, { ...scrollRevealOption, ...options });
+};
 
-ScrollReveal().reveal(".popular__card", {
-  ...scrollRevealOption,
-  interval: 500,
-});
+// Header Animation
+applyScrollReveal(".header__image img", { duration: 1000 });
+applyScrollReveal(".header__content h1", { delay: 500 });
+applyScrollReveal(".header__content .section__description", { delay: 1000 });
+applyScrollReveal(".header__btn", { delay: 1500 });
+applyScrollReveal(".header__content .socials", { delay: 2000 });
 
-ScrollReveal().reveal(".discover__card img", {
-  ...scrollRevealOption,
-  origin: "left",
-});
-ScrollReveal().reveal(".discover__card:nth-child(2) img", {
-  ...scrollRevealOption,
-  origin: "right",
-});
-ScrollReveal().reveal(".discover__card__content h4", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".discover__card__content .section__description", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".discover__card__content h3", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
-ScrollReveal().reveal(".discover__card__btn", {
-  ...scrollRevealOption,
-  delay: 2000,
-});
+// Popular Products Animation
+applyScrollReveal(".popular__card", { interval: 500 });
 
-ScrollReveal().reveal(".banner__content .section__header", {
-  ...scrollRevealOption,
-});
-ScrollReveal().reveal(".banner__content .section__description", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".banner__card", {
-  ...scrollRevealOption,
-  delay: 1000,
-  interval: 500,
-});
+// Discover Section Animation
+applyScrollReveal(".discover__card img", { origin: "left" });
+applyScrollReveal(".discover__card:nth-child(2) img", { origin: "right" });
+applyScrollReveal(".discover__card__content h4", { delay: 500 });
+applyScrollReveal(".discover__card__content .section__description", { delay: 1000 });
+applyScrollReveal(".discover__card__content h3", { delay: 1500 });
+applyScrollReveal(".discover__card__btn", { delay: 2000 });
 
-ScrollReveal().reveal(".subscribe__content .section__header", {
-  ...scrollRevealOption,
-});
-ScrollReveal().reveal(".subscribe__content .section__description", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".subscribe__content form", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
+// Banner Section Animation
+applyScrollReveal(".banner__content .section__header");
+applyScrollReveal(".banner__content .section__description", { delay: 500 });
+applyScrollReveal(".banner__card", { delay: 1000, interval: 500 });
+
+// Subscribe Section Animation
+applyScrollReveal(".subscribe__content .section__header");
+applyScrollReveal(".subscribe__content .section__description", { delay: 500 });
+applyScrollReveal(".subscribe__content form", { delay: 1000 });
