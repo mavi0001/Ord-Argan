@@ -62,3 +62,19 @@ applyScrollReveal(".banner__card", { delay: 1000, interval: 500 });
 applyScrollReveal(".subscribe__content .section__header");
 applyScrollReveal(".subscribe__content .section__description", { delay: 500 });
 applyScrollReveal(".subscribe__content form", { delay: 1000 });
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("popup-offer");
+  const closeBtn = document.getElementById("close-popup");
+
+  // Show popup after 3 seconds
+  setTimeout(() => {
+    popup.style.display = "block";
+  }, 3000);
+
+  // Close button event
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+});

@@ -467,6 +467,43 @@ footer {
 
 
 
+.popup-offer {
+  position: fixed;
+  top: 30%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background-color: #fffbea;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  z-index: 9999;
+  display: none;
+  max-width: 300px;
+  text-align: center;
+  font-family: "Cairo", sans-serif;
+}
+
+.popup-content h3 {
+  color: #d49b00;
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  color: #333;
+  margin: 5px 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+
 @media (width > 540px) {
   .popular__grid {
     grid-template-columns: repeat(2, 1fr);
