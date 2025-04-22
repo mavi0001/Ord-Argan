@@ -458,6 +458,13 @@ footer {
   opacity: 0.9; 
 }
 
+.footer__note {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: #65402A;
+  border-top: 1px solid #eee;
+}
 
 
 
